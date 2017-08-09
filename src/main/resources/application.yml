@@ -1,0 +1,14 @@
+spring:
+    http:
+        multipart:
+            max-file-size: 10000000KB
+            max-request-size: 10000000KB
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+
+server:
+    contextPath: /htwotest
+    port: 7007
+    servlet-path: /*
+      
