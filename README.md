@@ -1,7 +1,7 @@
 ## Intro
 This is a tutorial on testing Spring Boot APIs with an embedded ad hoc database.
 
-## Infrastructue
+## Infrastructure
 Postgres
 JDBC
 Spring Boot Starter 1.5.6
