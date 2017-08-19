@@ -1,5 +1,7 @@
 package com.somatic.htwotest.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +26,29 @@ public class ProductController {
     ProductService productServices; 
  
     @CrossOrigin 
-    @RequestMapping(value = "controllerTest", method = RequestMethod.POST) 
+    @RequestMapping(value = "testapi1", method = RequestMethod.POST) 
     @ResponseBody 
     @ApiOperation( 
             value = "value text", 
             notes = "notes text") 
      
-    public Product testapi() { 
+    public Product testapi1() { 
         logger.debug("Entrying testapi"); 
-        Product message = productServices.testapi(); 
+        Product message = productServices.testapi1(); 
+        logger.debug("Exiting testapi"); 
+        return message; 
+    }   
+ 
+    @CrossOrigin 
+    @RequestMapping(value = "testapi2", method = RequestMethod.POST) 
+    @ResponseBody 
+    @ApiOperation( 
+            value = "value text",  
+            notes = "notes text") 
+     
+    public List<Product> testapi2() { 
+        logger.debug("Entrying testapi"); 
+        List<Product> message = productServices.testapi2(); 
         logger.debug("Exiting testapi"); 
         return message; 
     }   

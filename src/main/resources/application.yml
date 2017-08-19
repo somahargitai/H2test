@@ -1,4 +1,8 @@
 spring:
+    datasource:    
+        password: password
+        url: jdbc:postgresql://localhost:5432/postgres?currentSchema=shopdb
+        username: postgres
     http:
         multipart:
             max-file-size: 10000000KB
@@ -6,9 +10,16 @@ spring:
     jackson:
         serialization:
             write-dates-as-timestamps: false
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
 
 server:
     contextPath: /htwotest
     port: 7007
     servlet-path: /*
       
+---
+
+spring:
+    profiles: profile1

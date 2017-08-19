@@ -1,5 +1,7 @@
 package com.somatic.htwotest.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,11 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
     
-    public Product testapi() {
-        return productRepository.testapi();
+    public Product testapi1() {
+        return productRepository.testapi1();
+    }
+    
+    public List<Product> testapi2() {
+        return productRepository.testapi2();
     }
 }

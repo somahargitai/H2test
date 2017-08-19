@@ -45,6 +45,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>   
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>   
+        
+        
 		<!-- SWAGGER -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -65,16 +72,16 @@
         
         <!--following are the dependency for database interaction -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-
+		  	<groupId>org.postgresql</groupId>
+  			<artifactId>postgresql</artifactId>
+  			 <!-- <version>9.4-1206-jdbc42</version> -->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
         
-        <!--  testing -->
+        <!-- 
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
@@ -86,6 +93,7 @@
             <artifactId>h2</artifactId>
                <scope>test</scope> 
         </dependency>
+         testing -->
         
         <dependency>
         	<groupId>org.scala-lang</groupId>
