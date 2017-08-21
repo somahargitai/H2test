@@ -26,7 +26,7 @@ public class ProductController {
     ProductService productServices; 
  
     @CrossOrigin 
-    @RequestMapping(value = "testapi1", method = RequestMethod.POST) 
+    @RequestMapping(value = "testapi1", method = RequestMethod.GET) 
     @ResponseBody 
     @ApiOperation( 
             value = "value text", 
@@ -40,7 +40,7 @@ public class ProductController {
     }   
  
     @CrossOrigin 
-    @RequestMapping(value = "testapi2", method = RequestMethod.POST) 
+    @RequestMapping(value = "testapi2", method = RequestMethod.GET) 
     @ResponseBody 
     @ApiOperation( 
             value = "value text",  

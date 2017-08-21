@@ -1,10 +1,16 @@
 package com.somatic.htwotest.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
+	@Id
     Integer productid;
     String productname;
     Integer price ;
     String comment ;
+    
     public Integer getProductid() {
         return productid;
     }

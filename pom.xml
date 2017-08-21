@@ -41,6 +41,18 @@
 			<scope>test</scope>
 		</dependency>
 		     
+		     <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>4.3.7.RELEASE</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>1.11.1.RELEASE</version>
+</dependency>
+
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -87,13 +99,19 @@
             <artifactId>hsqldb</artifactId>
             <scope>runtime</scope>
         </dependency>
-        
+        -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+    <version>1.4.194</version>
                <scope>test</scope> 
         </dependency>
-         testing -->
+        
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>5.2.9.Final</version>
+</dependency>
         
         <dependency>
         	<groupId>org.scala-lang</groupId>
