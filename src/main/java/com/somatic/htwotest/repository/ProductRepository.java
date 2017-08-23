@@ -10,10 +10,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-
 import com.somatic.htwotest.bean.Product;
 
-// com.somatic.htwotest.repository.ProductRepository
 @Repository
 public class ProductRepository {
     private static final Logger logger = LoggerFactory.getLogger(ProductRepository.class);
