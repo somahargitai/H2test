@@ -21,4 +21,8 @@ public class ProductService {
     public List<Product> testapi2() {
         return productRepository.testapi2();
     }
+    
+    public Boolean testapi3() {
+        return productRepository.testapi3();
+    }
 }

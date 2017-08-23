@@ -52,4 +52,18 @@ public class ProductController {
         logger.debug("Exiting testapi"); 
         return message; 
     }   
+ 
+    @CrossOrigin 
+    @RequestMapping(value = "testapi3", method = RequestMethod.GET) 
+    @ResponseBody 
+    @ApiOperation( 
+            value = "value text",  
+            notes = "notes text") 
+     
+    public Boolean testapi3() { 
+        logger.debug("Entrying testapi"); 
+        Boolean message = productServices.testapi3(); 
+        logger.debug("Exiting testapi"); 
+        return message; 
+    }   
 }
