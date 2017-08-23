@@ -1,34 +1,58 @@
 package com.somatic.htwotest.bean;
 
+
 import javax.sql.DataSource;
 
+import org.assertj.core.util.Arrays;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.jdbc.JdbcTestUtils;
 
 
-
+//@SpringBootTest 
+//@SpringBootTest
+@ActiveProfiles("test")
+@RunWith(SpringRunner.class)
 @SpringBootApplication
 public class JUnitConfig {
     private static final Logger logger = LoggerFactory.getLogger(JUnitConfig.class);
-
-
+/*
+@Autowired
+Environment env;
+/*
+  void run() {
+       if (Arrays.asList(env.getActiveProfiles()).contains("dev")) {
+          
+    	   
+       }
+    }
     @Bean
     public DataSource getDataSource() {
     	DataSource dataSource = null;
     	if (dataSource == null) {
-    		dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("create-db.sql").addScript("insert-data.sql").build();
+    		dataSource = new EmbeddedDatabaseBuilder()
+    				.setType(EmbeddedDatabaseType.H2)
+    				.addScript("create-db.sql")
+    				.addScript("insert-data.sql")
+    				.build();
     		}
     	logger.info("Datasource "+dataSource);
     	//testDB(new JdbcTemplate(dataSource));
     	return dataSource;
     	}
+    */
 /*
 @Before
 @Bean

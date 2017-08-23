@@ -1,11 +1,10 @@
 package com.somatic.htwotest;
 
-import java.sql.Connection;
 import java.util.List;
 
-import org.junit.After;
+import javax.sql.DataSource;
+
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -13,28 +12,37 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.somatic.htwotest.bean.JUnitConfig;
+import org.springframework.test.context.jdbc.*;
 import com.somatic.htwotest.bean.Product;
 import com.somatic.htwotest.controller.ProductController;
 
-import javax.sql.DataSource;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
+//.addScript("create-db.sql")
+//.addScript("insert-data.sql")
+
+//@SpringApplicationConfiguration(classes = Application.class)
+//@WebAppConfiguration
+@SqlGroup ({ 
+	@Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:create-db.sql"),
+	@Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:insert-data.sql"),
+/*,
+	@Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:afterTestRun.sql")*/
+})
 @RunWith(SpringRunner.class)
 @SpringBootTest  /*@TestPropertySource("classpath:properties.yml")*/
 //@SpringApplicationConfiguration(classes = JUnitConfig.class)
 @ActiveProfiles("test")
 public class H2testApplicationTests {
-    private static final Logger logger = LoggerFactory.getLogger(H2testApplicationTests.class);
+    private static final Logger logger = 
+    		LoggerFactory
+    		.getLogger(H2testApplicationTests.class);
 
-    private EmbeddedDatabase db;
+    // private EmbeddedDatabase db;
     
     @Autowired
     ProductController controller;
@@ -42,6 +50,7 @@ public class H2testApplicationTests {
 	@Autowired
 	DataSource dataSource;
 
+	//@Test
 	@Bean
 	public JdbcTemplate getJdbcTemplate() {
 		return new JdbcTemplate(dataSource);
@@ -80,9 +89,9 @@ public class H2testApplicationTests {
 		int size = productTestList.size();
 		logger.info(Integer.toString(size));
 		
-		String productName = productTestList.get(0).getProductname();
+		String productName = productTestList.get(1).getProductname();
 		
-		Assert.assertEquals("testproduct1", productName);
+		Assert.assertEquals("testproduct2", productName);
 		
 	}
 /*
